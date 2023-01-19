@@ -31,9 +31,8 @@ jobs:
           app_location: '/' # App source code path
           api_location: '' # Api source code path - optional
           output_location: '.next' # Built app content directory - optional
-          verbose: true # Enable verbose build output - optional
           app_build_command: 'yarn build' # Build script to run for generating the app content'
-          # api_build_command: 'rm -rf $SOURCE_DIR/node_modules/@next/swc-* && rm -rf $SOURCE_DIR/.next/cache' # Build script to run for generating the api content - optional
+          api_build_command: 'rm -rf $SOURCE_DIR/node_modules/@next/swc-* && rm -rf $SOURCE_DIR/.next/cache' # Build script to run for generating the api content - optional
           ###### End of Repository/Build Configurations ######
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
