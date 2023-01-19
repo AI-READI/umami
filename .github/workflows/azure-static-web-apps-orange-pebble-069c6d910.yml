@@ -32,6 +32,11 @@ jobs:
           api_location: '' # Api source code path - optional
           output_location: '' # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          COLLECT_API_ENDPOINT: ${{ secrets.COLLECT_API_ENDPOINT }}
+          HASH_SALT: ${{ secrets.HASH_SALT }}
+          TRACKER_SCRIPT_NAME: ${{ secrets.TRACKER_SCRIPT_NAME }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
