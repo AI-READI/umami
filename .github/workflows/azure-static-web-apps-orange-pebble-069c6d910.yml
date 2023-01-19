@@ -34,8 +34,8 @@ jobs:
           ###### End of Repository/Build Configurations ######
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          COLLECT_API_ENDPOINT: ${{ secrets.COLLECT_API_ENDPOINT }}
           HASH_SALT: ${{ secrets.HASH_SALT }}
+          COLLECT_API_ENDPOINT: ${{ secrets.COLLECT_API_ENDPOINT }}
           TRACKER_SCRIPT_NAME: ${{ secrets.TRACKER_SCRIPT_NAME }}
 
   close_pull_request_job:
