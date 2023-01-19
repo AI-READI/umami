@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 require('dotenv').config();
 const fse = require('fs-extra');
 const path = require('path');
@@ -29,3 +30,11 @@ del.sync(dest);
 fse.copySync(src, dest);
 
 console.log(`Copied ${src} to ${dest}`);
+
+const sslCertPath = path.join(__dirname, '..', 'assets', 'ssl', 'DigiCertGlobalRootCA.crt.pem');
+
+const prismaCertPath = path.join(__dirname, '..', 'prisma', 'DigiCertGlobalRootCA.crt.pem');
+
+fse.copySync(sslCertPath, prismaCertPath);
+
+console.log(`Copied ${sslCertPath} to ${prismaCertPath}`);
