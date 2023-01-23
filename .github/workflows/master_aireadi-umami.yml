@@ -24,7 +24,7 @@ jobs:
       - name: yarn install, build, and test
         run: |
           yarn install
-          yarn build --if-present
+          yarn build
       
       - name: Zip all files for upload between jobs
           # IMPORTANT: .next is a hidden folder and will NOT be included in the zip unless we specify it
