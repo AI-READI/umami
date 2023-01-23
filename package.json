@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm-run-all build-db check-db build-tracker build-geo build-app",
-    "start": "node_modules/next/dist/bin/next start",
+    "start": "node_modules/next/dist/bin/next start --port ${PORT:-3000}",
     "build-docker": "npm-run-all build-db build-tracker build-geo build-app",
     "start-docker": "npm-run-all check-db update-tracker start-server",
     "start-env": "node scripts/start-env.js",
