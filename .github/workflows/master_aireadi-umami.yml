@@ -21,11 +21,16 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: yarn install, build, and test
+      - name: Build the app
         run: |
           yarn install
           yarn build
-      
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          HASH_SALT: ${{ secrets.HASH_SALT }}
+          COLLECT_API_ENDPOINT: ${{ secrets.COLLECT_API_ENDPOINT }}
+          TRACKER_SCRIPT_NAME: ${{ secrets.TRACKER_SCRIPT_NAME }}
+
       - name: Zip all files for upload between jobs
         # IMPORTANT: .next is a hidden folder and will NOT be included in the zip unless we specify it
         run: zip next.zip ./* .next -qr
@@ -63,7 +68,6 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_747C4B3433FB4787ABA55BE1EFE514DE }}
           package: next.zip
-
 
       - name: Delete zip file
         run: rm next.zip
